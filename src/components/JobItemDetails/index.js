@@ -81,7 +81,7 @@ class JobItemDetails extends Component {
       const {name, imageUrl} = skill
       return (
         <li key={name}>
-          <img src={imageUrl} alt={name} />
+          <img alt={name} src={imageUrl} />
           <p>{name}</p>
         </li>
       )
