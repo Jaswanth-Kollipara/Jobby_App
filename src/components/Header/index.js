@@ -11,22 +11,26 @@ const Header = props => {
     history.replace('/login')
   }
   return (
-    <nav>
-      <Link to="/">
+    <nav className="nav-con">
+      <Link to="/" className="nav-img">
         <img
           src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
           alt="website logo"
         />
       </Link>
-      <ul>
+      <ul className="nav-ul">
         <li>
-          <Link to="/">Home</Link>
+          <Link className="nav-link" to="/">
+            Home
+          </Link>
         </li>
         <li>
-          <Link to="/jobs">Jobs</Link>
+          <Link className="nav-link" to="/jobs">
+            Jobs
+          </Link>
         </li>
         <li>
-          <button type="button" onClick={onClickLogout}>
+          <button className="nav-btn" type="button" onClick={onClickLogout}>
             Logout
           </button>
         </li>

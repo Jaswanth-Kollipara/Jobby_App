@@ -6,6 +6,7 @@ import {IoLocationOutline} from 'react-icons/io5'
 import {BsBriefcaseFill} from 'react-icons/bs'
 import Header from '../Header'
 import SimilarProducts from '../SimilarProducts'
+import './index.css'
 
 const apiStatusConstants = {
   initial: 'INITIAL',
@@ -80,8 +81,8 @@ class JobItemDetails extends Component {
     return skills.map(skill => {
       const {name, imageUrl} = skill
       return (
-        <li key={name}>
-          <img alt={name} src={imageUrl} />
+        <li className="jobdesc-skill" key={name}>
+          <img className="jobdesc-skill-img" alt={name} src={imageUrl} />
           <p>{name}</p>
         </li>
       )
@@ -91,51 +92,63 @@ class JobItemDetails extends Component {
   renderItemsView = () => {
     const {itemData} = this.state
     return (
-      <>
-        <div>
-          <img src={itemData.companyLogoUrl} alt='company logo' />
-          <div>
-            <h1>{itemData.title}</h1>
-            <div>
-              <FaStar />
-              <p>{itemData.rating}</p>
+      <div className="jobdesc-con">
+        <div className="jobdesc-con-in1">
+          <div className="jobdesc-con-in1-in">
+            <img
+              className="jobdesc-img"
+              src={itemData.companyLogoUrl}
+              alt="company logo"
+            />
+            <div className="jobdesc-con-in1-in-in">
+              <h1 className="jobdesc-title">{itemData.title}</h1>
+              <div className="jobdesc-con-in1-in-in-in">
+                <FaStar className="jobdesc-icon1" />
+                <p>{itemData.rating}</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div>
-          <div>
-            <IoLocationOutline />
-            <p>{itemData.location}</p>
+          <div className="jobdesc-con2">
+            <div className="jobdesc-con2-in">
+              <IoLocationOutline className="margin1" />
+              <p className="margin1">{itemData.location}</p>
+              <BsBriefcaseFill className="margin1" />
+              <p className="margin1">{itemData.employmentType}</p>
+            </div>
+            <p>{itemData.packagePerAnnum}</p>
           </div>
-          <div>
-            <BsBriefcaseFill />
-            <p>{itemData.employmentType}</p>
+          <hr />
+          <div className="jobdesc-con3">
+            <h1>Description</h1>
+            <div className="jobdesc-con3-in">
+              <a className="jobdesc-p1" href={itemData.companyWebsiteUrl}>
+                Visit
+              </a>
+              <FaShareSquare className="jobdesc-icon2" />
+            </div>
           </div>
-          <p>{itemData.packagePerAnnum}</p>
-        </div>
-        <hr />
-        <div>
-          <h1>Description</h1>
-          <div>
-            <a href={itemData.companyWebsiteUrl}>Visit</a>
-            <FaShareSquare />
+          <p>{itemData.jobDescription}</p>
+          <h1>Skills</h1>
+          <ul className="jobdesc-ul1">{this.showSkills()}</ul>
+          <h1>Life at Company</h1>
+          <div className="jobdesc-con4">
+            <p className="jobdesc-con4-in1">{itemData.description}</p>
+            <img
+              className="jobdesc-con4-in2"
+              src={itemData.imageUrl}
+              alt="life at company"
+            />
           </div>
         </div>
-        <p>{itemData.jobDescription}</p>
-        <h1>Skills</h1>
-        <ul>{this.showSkills()}</ul>
-        <h1>Life at Company</h1>
-        <div>
-          <p>{itemData.description}</p>
-          <img src={itemData.imageUrl} alt='life at company' />
+        <div className="jobdesc-con1">
+          <h1>Similar Jobs</h1>
+          <ul className="jobdesc-ul2">
+            {itemData.similarJobs.map(data => (
+              <SimilarProducts item={data} key={data.id} />
+            ))}
+          </ul>
         </div>
-        <h1>Similar Jobs</h1>
-        <ul>
-          {itemData.similarJobs.map(data => (
-            <SimilarProducts item={data} key={data.id} />
-          ))}
-        </ul>
-      </>
+      </div>
     )
   }
 
@@ -146,20 +159,20 @@ class JobItemDetails extends Component {
   renderFailureView = () => (
     <>
       <img
-        src='https://assets.ccbp.in/frontend/react-js/failure-img.png'
-        alt='failure view'
+        src="https://assets.ccbp.in/frontend/react-js/failure-img.png"
+        alt="failure view"
       />
       <h1>Oops! Something Went Wrong</h1>
       <p>We cannot seem to find the page you are looking for</p>
-      <button type='button' onClick={this.onClickRetry}>
+      <button type="button" onClick={this.onClickRetry}>
         Retry
       </button>
     </>
   )
 
   renderLoadingView = () => (
-    <div className='loader-container' data-testid='loader'>
-      <Loader type='ThreeDots' color='#ffffff' height='50' width='50' />
+    <div className="loader-container" data-testid="loader">
+      <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
     </div>
   )
 

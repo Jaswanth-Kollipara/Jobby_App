@@ -1,0 +1,35 @@
+.nav-con {
+  display: flex;
+  align-items: center;
+  background-color: #272727;
+  height: 5%;
+  width: 100vw;
+}
+
+.nav-img {
+  width: 50%;
+}
+
+.nav-ul {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 50%;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  background-color: #272727;
+}
+
+.nav-btn {
+  color: white;
+  background-color: blue;
+  height: 30px;
+  border-radius: 4px;
+  width: 200px;
+  margin-right: auto;
+  border: none;
+}

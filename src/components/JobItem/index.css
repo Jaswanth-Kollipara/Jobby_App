@@ -1,0 +1,61 @@
+.jobitem-con {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+.jobitem-li {
+  background-color: #272727;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.jobitem-con-in1 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.jobitem-img {
+  width: 75px;
+  height: 75px;
+  margin-right: 10px;
+}
+
+.jobitem-con-in1-in {
+  display: flex;
+  flex-direction: column;
+}
+
+.jobitem-title {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.jobitem-con-in1-in-in {
+  display: flex;
+  flex-direction: row;
+  height: 30px;
+  align-items: center;
+}
+
+.jobitem-icon1 {
+  color: yellow;
+  margin-right: 5px;
+}
+
+.jobitem-con-in2 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.jobitem-con-in2-in {
+  display: flex;
+  align-items: center;
+}
+
+.margin1 {
+  margin-right: 5px;
+}

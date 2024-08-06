@@ -18,32 +18,36 @@ const JobItem = props => {
   } = jobData
 
   return (
-    <Link to={`/jobs/${id}`}>
-      <li>
-        <div>
-          <img src={companyLogoUrl} alt="company logo" />
-          <div>
-            <h1>{title}</h1>
-            <div>
-              <FaStar />
+    <Link to={`/jobs/${id}`} className="jobitem-con">
+      <li className="jobitem-li">
+        <div className="jobitem-con-in1">
+          <img
+            className="jobitem-img"
+            src={companyLogoUrl}
+            alt="company logo"
+          />
+          <div className="jobitem-con-in1-in">
+            <h1 className="jobitem-title">{title}</h1>
+            <div className="jobitem-con-in1-in-in">
+              <FaStar className="jobitem-icon1" />
               <p>{rating}</p>
             </div>
           </div>
         </div>
-        <div>
-          <div>
-            <IoLocationOutline />
-            <p>{location}</p>
-          </div>
-          <div>
-            <BsBriefcaseFill />
-            <p>{employmentType}</p>
+        <div className="jobitem-con-in2">
+          <div className="jobitem-con-in2-in">
+            <IoLocationOutline className="margin1" />
+            <p className="margin1">{location}</p>
+            <BsBriefcaseFill className="margin1" />
+            <p className="margin1">{employmentType}</p>
           </div>
           <p>{packagePerAnnum}</p>
         </div>
-        <hr />
-        <h1>Description</h1>
-        <p>{jobDescription}</p>
+        <div>
+          <hr />
+          <h1>Description</h1>
+          <p>{jobDescription}</p>
+        </div>
       </li>
     </Link>
   )

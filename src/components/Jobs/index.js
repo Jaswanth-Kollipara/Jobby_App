@@ -7,6 +7,8 @@ import JobItem from '../JobItem'
 import Header from '../Header'
 import './index.css'
 
+const search = <BsSearch className="search-icon" />
+
 const employmentTypesList = [
   {
     label: 'Full Time',
@@ -178,13 +180,13 @@ class Jobs extends Component {
     const shouldShowProductsList = jobsList.length > 0
 
     return shouldShowProductsList ? (
-      <>
-        <ul className="products-list">
+      <div className="jobs-right-section">
+        <ul className="jobs-ul">
           {jobsList.map(job => (
             <JobItem jobData={job} key={job.id} />
           ))}
         </ul>
-      </>
+      </div>
     ) : (
       <div>
         <img
@@ -215,8 +217,8 @@ class Jobs extends Component {
   renderProfileView = () => {
     const {name, profileImageUrl, shortBio} = this.state
     return (
-      <div>
-        <img src={profileImageUrl} alt="profile" />
+      <div className="jobs-profile">
+        <img className="jobs-profile-img" src={profileImageUrl} alt="profile" />
         <h1>{name}</h1>
         <p>{shortBio}</p>
       </div>
@@ -257,6 +259,21 @@ class Jobs extends Component {
     }
   }
 
+  changeLocation = locationTypeId => {
+    const {location} = this.state
+    if (location.includes(locationTypeId)) {
+      const updatedData = location.filter(data => data !== locationTypeId)
+      this.setState({location: updatedData}, this.getJobs)
+    } else {
+      this.setState(
+        prevState => ({
+          location: [...prevState.location, locationTypeId],
+        }),
+        this.getJobs,
+      )
+    }
+  }
+
   changeSalary = salaryRangeId => {
     this.setState({salary: salaryRangeId}, this.getJobs)
   }
@@ -266,32 +283,34 @@ class Jobs extends Component {
     return (
       <div>
         <Header />
-        <div>
-          {this.renderProfile()}
-          <FiltersGroup
-            employmentType={employmentTypesList}
-            salaryRange={salaryRangesList}
-            changeType={this.changeType}
-            changeSalary={this.changeSalary}
-          />
-        </div>
-        <div>
-          <div>
-            <input
-              type="search"
-              placeholder="Search"
-              value={searchInput}
-              onChange={this.onChangeSearch}
+        <div className="jobs-main-con">
+          <div className="jobs-left-section">
+            {this.renderProfile()}
+            <FiltersGroup
+              employmentType={employmentTypesList}
+              salaryRange={salaryRangesList}
+              changeType={this.changeType}
+              changeSalary={this.changeSalary}
             />
-            <button
-              type="button"
-              data-testid="searchButton"
-              onClick={this.onClickSearch}
-            >
-              <BsSearch className="search-icon" />
-            </button>
           </div>
-          <div>{this.renderAllJobs()}</div>
+          <div>
+            <div>
+              <input
+                type="search"
+                placeholder="Search"
+                value={searchInput}
+                onChange={this.onChangeSearch}
+              />
+              <button
+                type="button"
+                data-testid="searchButton"
+                onClick={this.onClickSearch}
+              >
+                {search}
+              </button>
+            </div>
+            <div>{this.renderAllJobs()}</div>
+          </div>
         </div>
       </div>
     )

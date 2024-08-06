@@ -60,12 +60,14 @@ class Login extends Component {
     const {password} = this.state
     return (
       <>
-        <label className="input-label" htmlFor="password">
+        <label className="login-form-label" htmlFor="password">
           PASSWORD
         </label>
+        <br />
         <input
           type="password"
           id="password"
+          className="login-form-input"
           placeholder="Password"
           value={password}
           onChange={this.onChangePassword}
@@ -78,10 +80,14 @@ class Login extends Component {
     const {username} = this.state
     return (
       <>
-        <label htmlFor="username">USERNAME</label>
+        <label className="login-form-label" htmlFor="username">
+          USERNAME
+        </label>
+        <br />
         <input
           type="text"
           id="username"
+          className="login-form-input"
           placeholder="Username"
           value={username}
           onChange={this.onChangeUsername}
@@ -97,17 +103,29 @@ class Login extends Component {
       return <Redirect to="/" />
     }
     return (
-      <div className="login-form-container">
-        <img
-          src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
-          alt="website logo"
-        />
-        <form className="form-container" onSubmit={this.submitForm}>
-          <div>{this.renderUsernameField()}</div>
-          <div>{this.renderPasswordField()}</div>
-          <button type="submit">Login</button>
-          {showSubmitError && <p>*{errorMsg}</p>}
-        </form>
+      <div className="login-form">
+        <div className="login-form-con">
+          <div className="sample-details">
+            <p>Sample Details</p>
+            <p className="sample-username">User Name : rahul</p>
+            <p className="sample-password">Password : rahul@2021</p>
+          </div>
+          <div className="login-form-container">
+            <img
+              src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
+              alt="website logo"
+              className="login-form-img"
+            />
+            <form className="form-container" onSubmit={this.submitForm}>
+              <div>{this.renderUsernameField()}</div>
+              <div>{this.renderPasswordField()}</div>
+              <button className="login-form-button" type="submit">
+                Login
+              </button>
+              {showSubmitError && <p className="error">*{errorMsg}</p>}
+            </form>
+          </div>
+        </div>
       </div>
     )
   }

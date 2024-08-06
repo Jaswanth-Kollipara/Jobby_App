@@ -23,7 +23,7 @@ const FiltersGroup = props => {
   const renderSalery = () => (
     <>
       <hr />
-      <ul>{renderSaleryList()}</ul>
+      <ul className="filter-ul">{renderSaleryList()}</ul>
     </>
   )
 
@@ -48,7 +48,7 @@ const FiltersGroup = props => {
   const renderEmployee = () => (
     <>
       <hr />
-      <ul>{renderEmployeeList()}</ul>
+      <ul className="filter-ul">{renderEmployeeList()}</ul>
     </>
   )
 

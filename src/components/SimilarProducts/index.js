@@ -15,28 +15,28 @@ const SimilarProducts = props => {
   } = item
 
   return (
-    <li>
-      <div>
-        <img src={companyLogUrl} alt="similar job company logo" />
-        <div>
-          <h1>{title}</h1>
-          <div>
-            <FaStar />
+    <li className="simpro-con">
+      <div className="simpro-con1">
+        <img
+          className="simpro-img"
+          src={companyLogUrl}
+          alt="similar job company logo"
+        />
+        <div className="simpro-con1-in">
+          <h1 className="simpro-h1">{title}</h1>
+          <div className="simpro-con1-in-in">
+            <FaStar className="simpro-icon" />
             <p>{rating}</p>
           </div>
         </div>
       </div>
       <p>Description</p>
       <p>{jobDescription}</p>
-      <div>
-        <div>
-          <IoLocationOutline />
-          <p>{location}</p>
-        </div>
-        <div>
-          <BsBriefcaseFill />
-          <p>{employmentType}</p>
-        </div>
+      <div className="simpro-con2">
+        <IoLocationOutline className="margin1" />
+        <p className="margin1">{location}</p>
+        <BsBriefcaseFill className="margin1" />
+        <p className="margin1">{employmentType}</p>
       </div>
     </li>
   )

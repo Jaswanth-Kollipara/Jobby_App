@@ -1,0 +1,33 @@
+.jobs-main-con {
+  background-color: black;
+  width: 100vw;
+  color: white;
+  display: flex;
+}
+
+.jobs-left-section {
+  width: 20vw;
+  padding: 5px;
+}
+
+.jobs-profile {
+  background-image: url('https://assets.ccbp.in/frontend/react-js/profile-bg.png');
+  color: blue;
+  background-size: cover;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.jobs-profile-img {
+  width: 50px;
+}
+
+.jobs-right-section {
+  width: 80vw;
+  color: white;
+  padding: 5px;
+}
+
+.jobs-ul {
+  list-style-type: none;
+}
